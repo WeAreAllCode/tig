@@ -1,4 +1,4 @@
-<footer class="hidden">
+<footer class="">
 	<ul class="icons">
 		<li><a href="https://www.twitter.com" class="fa-twitter"><span class="label">Twitter</span></a></li>
 		<li><a href="https://www.facebook.com" class="fa-facebook"><span class="label">Facebook</span></a></li>

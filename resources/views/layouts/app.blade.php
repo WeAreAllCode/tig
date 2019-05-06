@@ -14,9 +14,7 @@
 		<div class="container">
 
 			<!-- MAIN CONTENT -->
-			<section class="content flex">
-				@yield('content')
-			</section>
+			@yield('content')
 		
 			<!-- FOOTER -->
 			@include('layouts.footer')
