@@ -3,8 +3,8 @@
 	<head>
 		@include('layouts.head')
 	</head>
-	<body class="bg-gray-1 font-geeky text-gray-9">
-		
+	<body class="bg-gray-1 font-geeky text-gray-9 pb-8">
+
 		<!-- HEADER -->
 		@include('layouts.header')
 
@@ -15,7 +15,7 @@
 
 			<!-- MAIN CONTENT -->
 			@yield('content')
-		
+
 			<!-- FOOTER -->
 			@include('layouts.footer')
 
