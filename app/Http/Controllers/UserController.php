@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-	// Authentication Check
-	public function __construct()
+    // Authentication Check
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -23,7 +23,7 @@ class UserController extends Controller
     // Create User Form
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     // Store New User
