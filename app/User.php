@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id', 'is_active'
     ];
 
     /**
@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // RELATIONSHIPS - START
+    public function role() {
+        return $this->belongsTo(Role::class)->withDefault(); // a user belongs to a role
+    }
+    // RELATIONSHIPS - END
+
+    // SCOPES - START
+    public function scopeActive($query) {
+        return $query->where('is_active', 1);
+    }
+    // SCOPES - END
 }
