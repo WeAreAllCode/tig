@@ -7,7 +7,7 @@
 		<section>
 			<img class="mx-auto" src="/images/intermittent-geek-logo.svg" alt="" width="300">
 			<div class="m-8">
-				<p class="text-sm text-center uppercase">An entertaining journey through some of my geeky adventrues.</p>
+				<p class="text-sm text-center uppercase">An entertaining journey through some of my geeky adventures.</p>
 			</div>
         </section>
 

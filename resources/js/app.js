@@ -5,3 +5,12 @@
  */
 
 require('./bootstrap');
+
+window.Vue = require('vue');
+
+Vue.component('sidebar', require('./components/Sidebar.vue').default);
+Vue.component('posts', require('./components/Posts.vue').default);
+
+const app = new Vue({
+    el: '#app'
+});

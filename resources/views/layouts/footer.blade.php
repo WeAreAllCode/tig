@@ -1,4 +1,4 @@
-<footer class="">
+<footer class="lg:flex lg:justify-between lg:items-center">
     <section class="flex justify-center">
         <div class="my-10 mx-2">
             <a href="https://www.twitter.com" class="">

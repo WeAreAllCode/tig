@@ -14,7 +14,9 @@
 		<div class="container">
 
 			<!-- MAIN CONTENT -->
-			@yield('content')
+			<div id="app" class="content lg:flex">
+				@yield('content')
+			</div>
 
 			<!-- FOOTER -->
 			@include('layouts.footer')

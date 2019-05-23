@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<section class="sidebar">
-				
-	</section>
-	<section class="main">
-		
-	</section>
+	<sidebar></sidebar>
+	<posts></posts>
 @endsection
