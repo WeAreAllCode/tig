@@ -20,12 +20,10 @@ class CreatePostsTable extends Migration
             $table->string('sub_title');
             $table->text('body');
             $table->boolean('is_published')->default(0);
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('user_id');
+            $table->integer('category_id');
             $table->timestamps();
-        });
+		});
     }
 
     /**

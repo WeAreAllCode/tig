@@ -2,84 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
+use App\Post;
+use App\Http\Resources\Post as PostResource;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+	// Show All Posts
+	public function index()
+	{
+		// Get the posts
+		$posts = Post::paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+		// Return collection of posts as a resource
+		return PostResource::collection($posts);
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	// Create New Post Form
+	public function create()
+	{
+		//
+	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+	// Store or Update a Post
+	public function store(Request $request)
+	{
+		//  Allow for post update *or* create a new post
+		$post        		= $request->isMethod('put') ? Post::findOrFail($request->id) : new Post;
+		$post->id 			= $request->input('id');
+		$post->title 		= $request->input('title');
+		$post->slug 		= $request->input('slug');
+		$post->sub_title	= $request->input('sub_title)');
+		$post->body 		= $request->input('body');
+		$post->is_published = $request->input('is_published');
+		$post->user_id 		= $request->input('user_id');
+		$post->category_id 	= $request->input('category_id');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
+		if ($post->save()) {
+			return new PostResource($post);
+		}
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
+	// Show One Post
+	public function show(Post $post)
+	{
+		// Return a single post as a resource
+		return new PostResource($post);
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
-    {
-        //
-    }
+	// Delete a Post
+	public function destroy(Post $post)
+	{
+		if ($post->delete()) {
+			return new PostResource($post);
+		}
+	}
 }
